@@ -74,6 +74,18 @@ complete match shows with `{multiSegment=**}`
 -  Recursive wildcard: Matches path segments at or below a path. You always
    declare it by adding `=**`
 
+One note about recursive wildcards is that when you use them in conjunction with
+a singleSegment, the singleSegment will be of the lowest relative document path.
+
+I.e if you have
+
+`/example/hello/{docId}` as a path structure in firestore and have
+
+`/{example=**}/{greeting}` as a match statement
+
+When you make a request of `/example/hello/doc1` the value of `{greeting}` will
+be `{docId}`, not the document right bellow `example`
+
 ## Allow
 
 Each match block can have an allow statement. Each allow statement can be
@@ -184,3 +196,19 @@ service cloud.firestore {
 # Writing s.r
 
 
+# DEBUGGING
+
+To debug security rules you must use the emulator. Wrap a variable you'd like to
+see the value of with `debug(VARIABLE)`.
+
+```
+    match /events/{userId}/{document=**} {
+      allow read, write: if
+        debug(
+            request.auth.uid == debug(userId)
+            );
+    }
+```
+
+In this example it will first print the userId then print the results of the
+entire debug statement (either true or false).
