@@ -7,6 +7,7 @@ Want to read:
 -  [Firestore Security](https://firebase.google.com/docs/firestore/security/overview)
 -  [Firestore solutions](https://firebase.google.com/docs/firestore/solutions)
 -  [Custom Claims](https://firebase.google.com/docs/auth/admin/custom-claims)
+-  [Functions she'll For Testing](https://firebase.google.com/docs/functions/local-shell)
 
 Currently Reading:
 
