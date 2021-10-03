@@ -2,6 +2,8 @@
 
 # Intro
 
+[This](https://firebase.googleblog.com/2021/01/code-review-security-rules.html) is a good read about firebase rules as well.
+
 All rules are applied as `OR` statements, so overlapping rules will work give
 most access always.
 
